@@ -1,0 +1,38 @@
+# Build files
+/build/
+*.o
+*.out
+*.so
+/bin/
+lib/
+.cache/clangd/
+
+# CMake files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+CTestTestfile.cmake
+.cmake/
+makefile
+
+# External dependencies
+/_deps/
+
+# IDE config files
+.idea/
+.vscode/
+
+# Other temporary files
+*.log
+*.tmp
+
+# Don't include data files
+/generatedData/initialRandomOrders.txt
+/generatedData/initialPerformance.txt
+/generatedData/randomOrders.txt
+/generatedData/finalPerformanceMetrics.txt
+
+# binaries
+redblacktree_test
+limit_order_book
+book_test

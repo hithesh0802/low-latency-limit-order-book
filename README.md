@@ -1,6 +1,6 @@
 # Low Latency Limit Order Book
 
-This is a Limit Order Book developed in `C++` from scratch, and can handle over 1 million TPS.
+This is a Limit Order Book developed in `C++` from scratch.
 
 ### Overview
 
@@ -90,24 +90,6 @@ To handle the high frequency of orders efficiently, a self-balancing binary tree
 > The majority of activity in a limit order book consists of add and cancel operations as market makers compete for position, with executions being far less frequent.
 
 Based on this insight, I decided to experiment with a Red-Black Tree instead. Unlike AVL Trees, Red-Black Trees enforce balance more leniently, which theoretically results in fewer rotations during rebalancing, making them potentially better suited for this use case.
-
-### Performance on a 16GB M1 Pro Processor
-
-The primary 5 tested operations were:
-
-- `AddMarketOrder` - Places a market order that executes immediately at the best available price, consuming liquidity from the order book.\
-- `AddLimitOrder` - Adds a limit order to the order book at a specified price (may execute immediately if it crosses the spread)
-- `CancalLimitOrder` - Cancels an existing limit order in the order book, removing it from the market
-- `AddLimitInMarket` - Places a marketable limit order, meaning the price is adjusted to be within or very close to the current bid-ask spread
-- `ModifyLimitOrder` - Modifies an existing limit order in the order book (e.g., updating the quantity or price, **but not order type**)
-
-<img src="Docs/localPerformance.png" alt="performance" width="800" height="500">
-
-### Next
-
-- Test performance on compute cluster
-- Add more order types e.g stop orders
-- Plot performance vs. # of red black tree balances
 
 ### References
 
